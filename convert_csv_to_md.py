@@ -1,29 +1,21 @@
 import csv
 
-# File paths
+# Relative path to the CSV file
 input_file = 't20.csv'
-output_file = 'cricket_players.md'
 
-# Read CSV and calculate column widths
+# Read the CSV file
 with open(input_file, 'r') as csv_file:
     reader = csv.reader(csv_file)
-    rows = list(reader)  # Read all rows
-    headers = rows[0]    # Extract headers
-    data = rows[1:]      # Extract data
+    headers = next(reader)  # Get the header row
 
-    # Calculate max width for each column
-    column_widths = [max(len(str(item)) for item in col) for col in zip(*rows)]
+    # Generate Markdown table
+    markdown_table = "| " + " | ".join(headers) + " |\n"
+    markdown_table += "| " + " | ".join(["---"] * len(headers)) + " |\n"
 
-    # Generate formatted Markdown table
-    def format_row(row):
-        return "| " + " | ".join(f"{str(cell).ljust(width)}" for cell, width in zip(row, column_widths)) + " |"
+    for row in reader:
+        markdown_table += "| " + " | ".join(row) + " |\n"
 
-    # Build the Markdown table
-    markdown_table = format_row(headers) + "\n"
-    markdown_table += "| " + " | ".join("-" * width for width in column_widths) + " |\n"
-    for row in data:
-        markdown_table += format_row(row) + "\n"
-
-# Write the Markdown table to a file
+# Write the Markdown table to cricket_players.md
+output_file = 'cricket_players.md'
 with open(output_file, 'w') as md_file:
     md_file.write(markdown_table)

@@ -1,4 +1,4 @@
-name: Display Cricket Players Table
+name: Update Cricket Players Table
 
 on:
   push:
@@ -6,22 +6,20 @@ on:
       - main
 
 jobs:
-  display-table:
+  update-table:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
 
-      - name: Generate Cricket Players Table
-        run: python generate_table.py
+    - name: Install dependencies
+      run: python -m pip install --upgrade pip
 
-      - name: Add table to summary
-        run: |
-          echo "### Cricket Players Summary Table :arrow_double_down: " >> $GITHUB_STEP_SUMMARY
-          cat cricket_players.md >> $GITHUB_STEP_SUMMARY
+    - name: Generate Markdown table
+      run: python convert_csv_to_md.py
