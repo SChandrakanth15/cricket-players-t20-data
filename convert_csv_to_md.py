@@ -1,7 +1,7 @@
 import csv
 
 # Read the CSV file
-input_file = 'players.csv'
+input_file = 't20.csv'
 output_file = 'cricket_players.md'
 
 with open(input_file, 'r') as csv_file:
