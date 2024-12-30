@@ -2,6 +2,7 @@ import csv
 
 # Read the CSV file
 input_file = 't20.csv'
+output_file = 'cricket_players.md'
 
 with open(input_file, 'r') as csv_file:
     reader = csv.reader(csv_file)
@@ -14,7 +15,6 @@ with open(input_file, 'r') as csv_file:
     for row in reader:
         markdown_table += "| " + " | ".join(row) + " |\n"
 
-# Print the Markdown table to console
-print("::group::Cricket Players Table")
-print(markdown_table)
-print("::endgroup::")
+# Write the Markdown table to a file
+with open(output_file, 'w') as md_file:
+    md_file.write(markdown_table)
