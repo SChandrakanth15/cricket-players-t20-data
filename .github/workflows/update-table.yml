@@ -27,7 +27,7 @@ jobs:
 
     - name: Display Cricket Players Table in Summary
       run: |
-        echo "### Fetch Data Summary of Cricket Players" >> $GITHUB_STEP_SUMMARY
+        echo "### Fetch Data Summary of Cricket Players :arrow_double_down:" >> $GITHUB_STEP_SUMMARY
         echo "\`\`\`markdown" >> $GITHUB_STEP_SUMMARY
         cat cricket_players.md >> $GITHUB_STEP_SUMMARY
         echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
