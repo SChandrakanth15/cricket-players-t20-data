@@ -8,14 +8,22 @@ with open(input_file, 'r') as csv_file:
     reader = csv.reader(csv_file)
     headers = next(reader)  # Get the header row
 
-    # Generate Markdown table
-    markdown_table = "| " + " | ".join(headers) + " |\n"
+    # Add some emojis and start the Markdown table
+    markdown_table = "### :cricket_bat_and_ball: Cricket Players T20 Stats :cricket_bat_and_ball:\n\n"
+    markdown_table += ":star2: **Here is the table of cricket players' stats in T20 format:** :star2:\n\n"
+    
+    # Create the table header
+    markdown_table += "| " + " | ".join(headers) + " |\n"
     markdown_table += "| " + " | ".join(["---"] * len(headers)) + " |\n"
 
+    # Create the table rows with some emoji-based flair (optional)
     for row in reader:
         markdown_table += "| " + " | ".join(row) + " |\n"
 
-# Write the Markdown table to the GitHub Actions summary
-print("Cricket Players Table")
+    # Add a closing note or emoji for excitement
+    markdown_table += "\n:clap: **Thanks for checking out the players' data!** :trophy:"
+
+# Print the Markdown table to GitHub Actions summary
+print("::group::Cricket Players Table :star_struck:")
 print(markdown_table)
 print("::endgroup::")
