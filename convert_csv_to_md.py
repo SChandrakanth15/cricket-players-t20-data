@@ -16,6 +16,6 @@ with open(input_file, 'r') as csv_file:
         markdown_table += "| " + " | ".join(row) + " |\n"
 
 # Write the Markdown table to the GitHub Actions summary
-print("::group::Cricket Players Table")
+print("Cricket Players Table")
 print(markdown_table)
 print("::endgroup::")
