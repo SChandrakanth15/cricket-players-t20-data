@@ -9,7 +9,7 @@ with open(input_file, 'r') as csv_file:
     headers = next(reader)  # Get the header row
 
     # Add some emojis and start the Markdown table
-    markdown_table = "### :cricket_bat_and_ball: Cricket Players T20 Stats 🏏\n\n"
+    markdown_table = "### 🏏 Cricket Players T20 Stats 🏏\n\n"
     markdown_table += ":star2: **Here is the table of cricket players' stats in T20 format:** :star2:\n\n"
     
     # Create the table header
