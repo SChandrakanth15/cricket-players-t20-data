@@ -1,6 +1,6 @@
 import csv
 
-# Read the CSV file
+# File paths
 input_file = 't20.csv'
 output_file = 'cricket_players.md'
 
