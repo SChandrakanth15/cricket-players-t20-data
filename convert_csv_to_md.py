@@ -15,7 +15,7 @@ with open(input_file, 'r') as csv_file:
     for row in reader:
         markdown_table += "| " + " | ".join(row) + " |\n"
 
-# Write the Markdown table to cricket_players.md
-output_file = 'cricket_players.md'
-with open(output_file, 'w') as md_file:
-    md_file.write(markdown_table)
+# Write the Markdown table to the GitHub Actions summary
+print("::group::Cricket Players Table")
+print(markdown_table)
+print("::endgroup::")
