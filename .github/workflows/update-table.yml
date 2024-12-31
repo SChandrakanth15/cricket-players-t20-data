@@ -23,7 +23,7 @@ jobs:
 
     - name: Generate Markdown table and show in GitHub Summary
       run: |
-        python convert_csv_to_md.py > $GITHUB_STEP_SUMMARY
+        python convert_csv_to_md.py >> $GITHUB_STEP_SUMMARY
         echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
         echo ":arrow_double_down: Check out the players' table below!">>$GITHUB_STEP_SUMMARY
         
