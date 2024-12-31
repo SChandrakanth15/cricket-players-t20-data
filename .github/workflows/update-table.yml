@@ -24,6 +24,6 @@ jobs:
     - name: Generate Markdown table and show in GitHub Summary
       run: |
         echo "### :heart_eyes: Cricket Players T20 Stats :heart_eyes: " >> $GITHUB_STEP_SUMMARY
-        echo "🌟 **Here is the table of cricket players' stats in T20 format:** 🌟" >> $GITHUB_STEP_SUMMARY
+        echo " :point_right:**Here is the table of cricket players' stats in T20 format:** point_left" >> $GITHUB_STEP_SUMMARY
         python convert_csv_to_md.py >> $GITHUB_STEP_SUMMARY
         echo "\n:clap: **Thanks for checking out the players' data!** :trophy:" >> $GITHUB_STEP_SUMMARY
