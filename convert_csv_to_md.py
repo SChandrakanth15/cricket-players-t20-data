@@ -24,6 +24,4 @@ with open(input_file, 'r') as t20_csv_file:
     markdown_table += "\n:clap: **Thanks for checking out the players' data!** :trophy:"
 
 # Write the Markdown table to GitHub Actions summary
-print("::group::Cricket Players Table :star_struck:")
 print(markdown_table)
-print("::endgroup::")
