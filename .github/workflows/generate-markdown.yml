@@ -1,0 +1,40 @@
+name: Generate Markdown Table
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  generate-markdown:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.11" # Use the Python version you need
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pymongo
+
+    - name: Run generate_markdown.py
+      env:
+        MONGO_URI: ${{ secrets.MONGO_URI }}
+      run: |
+        python generate_markdown.py
+
+    - name: Commit and push Markdown table
+      if: success()
+      run: |
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
+        git add players.md
+        git commit -m "Update players.md with the latest data"
+        git push
