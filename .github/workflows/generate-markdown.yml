@@ -17,7 +17,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: "3.11" # Use the Python version you need
+        python-version: "3.11"
 
     - name: Install dependencies
       run: |
@@ -29,6 +29,9 @@ jobs:
         MONGO_URI: ${{ secrets.MONGO_URI }}
       run: |
         python generate_markdown.py
+
+    - name: Debug generated files
+      run: ls -R
 
     - name: Commit and push Markdown table
       if: success()
