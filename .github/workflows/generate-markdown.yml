@@ -31,7 +31,10 @@ jobs:
         python generate_markdown.py
 
     - name: Debug generated files
-      run: ls -R
+      run: |
+        echo "Listing all files to check if players.md exists:"
+        ls -R
+        cat players.md
 
     - name: Add Markdown table to GitHub summary
       run: |
@@ -43,5 +46,5 @@ jobs:
         git config --global user.name "GitHub Actions"
         git config --global user.email "actions@github.com"
         git add players.md
-        git commit -m "Update players.md with the latest data"
+        git commit -m "Update players.md with the latest data" || echo "No changes to commit"
         git push
