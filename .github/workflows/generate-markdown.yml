@@ -33,6 +33,11 @@ jobs:
     - name: Debug generated files
       run: ls -R
 
+    - name: Add Markdown table to GitHub summary
+      run: |
+        echo "### Generated Players Table" >> $GITHUB_STEP_SUMMARY
+        cat players.md >> $GITHUB_STEP_SUMMARY
+
     - name: Commit and push Markdown table
       run: |
         git config --global user.name "GitHub Actions"
