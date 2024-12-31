@@ -4,8 +4,8 @@ import csv
 input_file = 't20.csv'
 
 # Read the CSV file
-with open(input_file, 'r') as csv_file:
-    reader = csv.reader(csv_file)
+with open(input_file, 'r') as t20_csv_file:
+    reader = csv.reader(t20_csv_file)
     headers = next(reader)  # Get the header row
 
     # Add some emojis and start the Markdown table
